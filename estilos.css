@@ -1,0 +1,7 @@
+.usuario{
+    width: 100%; /* Establece el ancho al 100% del contenedor */
+    padding: 8px; /* Ajusta el espaciado interno */
+    border-radius: 8px; /* Agrega bordes redondeados */
+    background-color: #f8f8f8; /* Establece un color de fondo */
+    border: 1px solid #ccc;
+}
