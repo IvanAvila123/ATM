@@ -5,3 +5,10 @@
     background-color: #f8f8f8; /* Establece un color de fondo */
     border: 1px solid #ccc;
 }
+
+body{
+    background-image: url("img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
