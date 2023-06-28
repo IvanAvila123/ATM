@@ -1,55 +1,99 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Bienvenido ATM</title>
-  </head>
-  <body>
-    
-    <header>
-        <div class= "bg-secondary p-2">
-            <h1 class="text-center">Bienvenido al cajero ATM</h1>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="estilos.css">
+  <title>Bienvenido ATM</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="bg-secondary p-2">
+      <h1 class="text-center">Bienvenido al cajero ATM</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card m-5 cb1 text-center">
+      <div class="card-body">
+        <h2 class="card-title text-center">Selecciona Un Usuario</h2>
+
+        <div class="container text-center p-3">
+          <select class="w-35 h-25 text-center usuario" name="cuenta" id="usuarios">
+            <option value="ivan" id="usuario1">Ivan</option>
+            <option value="oscar" id="usuario2">Oscar</option>
+            <option value="rodrigo" id="usuario3">Rodrigo</option>
+          </select>
+
         </div>
-    </header>
 
-    <div class="container">
-       <div class="card m-5 cb1 text-center">
-        <div class="card-body">
-            <h2 class="card-title text-center">Selecciona Un Usuario</h2>
-            
-            <div class="container text-center p-3">
-                <select class="w-35 h-25 text-center usuario" name="" id="">
-                  <option value="">Ivan</option>
-                  <option value="">Oscar</option>
-                  <option value="">Rodrigo</option>
-                </select>
-
-              </div>
-
-              <div class="container text-center">
-                <button type="button" class="btn btn-success">Entrar</button>
-              </div>
-              
-              
+        <div class="container text-center">
+          <button type="button" class="btn btn-success" onclick="solicitarPin()">Entrar</button>
         </div>
-       </div>
+
+
       </div>
-      
-    <!-- Optional JavaScript; choose one of the two! -->
+    </div>
+  </div>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+    const selector = document.querySelector('#usuarios');
+
+
+    const cuentas = [
+      { id: 10, nombre: "ivan", saldo: '900.00', pin: "0000" },
+      { id: 24, nombre: "oscar", saldo: '990.00', pin: "1234" },
+      { id: 11, nombre: "rodrigo", saldo: '200.00', pin: "9999" },
+    ];
+
+    function solicitarPin() {
+    const usuario = selector.value;
+
+    // Buscar la cuenta del usuario en el array de cuentas
+    const cuenta = cuentas.find(cuenta => cuenta.nombre === usuario);
+
+    if (cuenta) {
+      const pin = prompt("Ingresa tu PIN:");
+
+      // Verificar el PIN ingresado
+      if (pin === cuenta.pin) {
+        // PIN correcto, abrir una nueva ventana con la información de la cuenta
+        const url = "nueva_ventana.html?usuario=" + cuenta.nombre + "&saldo=" + cuenta.saldo;
+        window.open(url);
+      } else {
+        // PIN incorrecto, mostrar un mensaje de error
+        alert("PIN incorrecto. Inténtalo de nuevo.");
+      }
+    } else {
+      // Usuario no válido, mostrar un mensaje de error
+      alert("Usuario no válido");
+    }
+  }
+
+
+  </script>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
-  </body>
+</body>
+
 </html>
