@@ -11,6 +11,7 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .card{
@@ -30,4 +31,16 @@ body{
 
 .cb1{
     background-color: rgba(225, 225, 225, 0.1);
+}
+
+
+.card-1{
+    border-radius: 1rem;
+    border: 1px solid transparent;
+    backdrop-filter: blur(1rem);
+    box-shadow: 1.3rem 1.3rem 1.rem rgba(0, 0, 0, 0.5);
+    border-top-color: rgba(225, 225, 225, 0.5);
+    border-left-color: rgba(225, 225, 225, 0.5);
+    border-bottom-color: rgba(225, 225, 225, 0.5);
+    border-right-color: rgba(225, 225, 225, 0.5);
 }
