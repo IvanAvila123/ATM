@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(img/fondo-2.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.container-card{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: aliceblue;
+}
+
+.tarjeta{
+    width: 850px;
+    height: 160px;
+    margin: 10px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border-left: 1px solid rgb(255, 255, 255, 0.);
+    border-top: 1px solid rgb(255, 255, 255, 0.5);
+    background: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.card-buttons{
+
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+    
+}
