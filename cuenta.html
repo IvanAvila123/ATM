@@ -69,11 +69,27 @@ const retirar = () => {
   }
 };
 
+const ingresar = ()=>{
+  const cuentaEncontrada = cuentas.find((cuenta) => cuenta.nombre === usuario);
+  if(cuentaEncontrada){
+    const monto = prompt("Ingrese El Monto a Ingresar:", "");
+    const saldoActual = parseFloat(cuentaEncontrada.saldo);
+    const montoIngresado = parseFloat(monto);
+    const nuevoSaldo = saldoActual + montoIngresado;
+    cuentaEncontrada.saldo = nuevoSaldo.toFixed(2);
+    const informacion = document.getElementById("infromacion");
+    informacion.innerHTML = `Monto Ingresado: $${montoingresado}<br> Nuevo Saldo: $${nuevoSaldo}<br>`;
+
+  } else {
+      alert("El monto a retirar supera el saldo disponible");
+    }
+};
 
 
 
     document.querySelector(".btn-outline-primary").addEventListener("click", consultar);
     document.querySelector(".btn-outline-success").addEventListener("click", retirar);
+    document.querySelector(".btn-outline-light").addEventListener("click", ingresar);
   </script>
 
 
